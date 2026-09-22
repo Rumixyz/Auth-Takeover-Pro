@@ -1,4 +1,4 @@
-![Auth-Takeover-Pro Banner]cd436a15-4446-d736-d482-3a4ca95ec64e.jpeg
+![Auth-Takeover-Pro Banner](cd436a15-4446-d736-d482-3a4ca95ec64e.jpeg)
 
 Auth-Takeover-Pro - OAuth Security Scanner (For Authorized Testing Only)
 
