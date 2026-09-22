@@ -1,8 +1,14 @@
-# OAuth-Takeover-Pro
-Find OAuth Account Takeover / Open Redirect in 5 seconds.
+# Auth-Takeover-Pro - OAuth Security Scanner (For Authorized Testing Only)
 
-Made by Uzma - Bug Bounty Hunter
-Usage: python main.py
-Bounty Potential: $500 - $2000
+> ⚠️ **Disclaimer:** This tool is for educational purposes and authorized Bug Bounty programs only. Do not use on targets without permission.
 
-GitHub: Rumixyz
+### What it does (Safe Detection Only)
+- Checks if redirect_uri is properly validated
+- Detects potential postMessage misconfigurations via static code analysis
+- Flags redirect URIs pointing to non-existent subdomains for manual review
+
+### How to Use
+python main.py --url https://target.com
+
+This tool only reports potential issues, it does NOT steal tokens or takeover accounts.
+
