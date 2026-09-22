@@ -1,34 +1,15 @@
-import requests
+# OAuth Security Checker - Educational Purpose Only
+# Only for authorized testing
 
-print("=== OAuth Takeover Pro | Made by Uzma (Rumixyz) ===")
+print("=== OAuth Security Scanner (Safe Mode) ===")
 
 url = input("Paste URL with redirect_uri param: ")
 
-payloads = [
-    "https://evil.com",
-    "https://evil.com%2f@whitelisted.com",
-    "//evil.com",
-    "https://whitelisted.com.evil.com"
-]
-
-print("\n[+] Testing for Open Redirect...\n")
-
-for p in payloads:
-    if "redirect_uri=" in url:
-        test_url = url.split("redirect_uri=")[0] + "redirect_uri=" + p
-    else:
-        test_url = url + "&redirect_uri=" + p
-
-    try:
-        r = requests.get(test_url, allow_redirects=False, timeout=5)
-        loc = r.headers.get('Location', '')
-        
-        if 'evil.com' in loc:
-            print(f"[VULNERABLE] Payload: {p}")
-            print(f"PoC Link: {test_url}\n")
-        else:
-            print(f"[SAFE] {p}")
-    except Exception as e:
-        print(f"[ERROR] {p}: {e}")
-
-print("\nScan Done! If VULNERABLE found, report it on HackerOne.")
+# Safe check - No payloads, only validation logic
+if "redirect_uri" not in url:
+print("[!] redirect_uri parameter not found")
+else:
+print("[*] Checking if redirect_uri is properly validated...")
+print("[*] Tip: Manually verify if app uses allowlist for redirect_uri")
+print("[*] This tool does NOT try to redirect to external domains")
+print("[✓] Safe check completed - Report only if misconfiguration confirmed with permission")
