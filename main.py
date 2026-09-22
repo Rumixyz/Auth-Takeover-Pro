@@ -1,15 +1,12 @@
-# OAuth Security Checker - Educational Purpose Only
-# Only for authorized testing
+from modules.redirect_check import check_redirect
+from modules.postmessage_check import check_postmessage
+from modules.subdomain_check import check_subdomain
 
-print("=== OAuth Security Scanner (Safe Mode) ===")
+print("=== Auth-Takeover-Pro - Safe Mode ===")
+url = input("Enter URL: ")
+check_redirect(url)
+check_postmessage("sample js code with postMessage")
+# Example: check_subdomain("expired.example.com")
 
-url = input("Paste URL with redirect_uri param: ")
+print("\n[Done] All checks are safe detection only. For authorized testing only.")
 
-# Safe check - No payloads, only validation logic
-if "redirect_uri" not in url:
-print("[!] redirect_uri parameter not found")
-else:
-print("[*] Checking if redirect_uri is properly validated...")
-print("[*] Tip: Manually verify if app uses allowlist for redirect_uri")
-print("[*] This tool does NOT try to redirect to external domains")
-print("[✓] Safe check completed - Report only if misconfiguration confirmed with permission")
